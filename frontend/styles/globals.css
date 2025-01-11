@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    rgba(17, 24, 39, 1),   /* Dark blue */
+    rgba(88, 28, 135, 1),  /* Purple */
+    rgba(124, 58, 237, 1)  /* Indigo */
+  );
+  background-attachment: fixed;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    315deg,
+    rgba(88, 28, 135, 0.4),
+    rgba(124, 58, 237, 0.4),
+    rgba(99, 102, 241, 0.4)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Mesh Gradient Animation */
+.mesh-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(at 0% 0%, rgba(88, 28, 135, 0.3) 0%, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(67, 56, 202, 0.3) 0%, transparent 50%);
+  animation: meshMove 20s ease infinite alternate;
+  z-index: 0;
+}
+
+@keyframes meshMove {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
