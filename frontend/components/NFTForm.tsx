@@ -59,7 +59,7 @@ const NFTForm: React.FC = () => {
 
     setMinting(true);
     try {
-      const connection = new Connection(`${process.env.SOLANA_MAINNET_RPC}`);
+      const connection = new Connection(`${process.env.NEXT_PUBLIC_SOLANA_MAINNET_RPC}`);
       const metaplex = Metaplex.make(connection)
         .use(walletAdapterIdentity(wallet));
 
