@@ -31,7 +31,7 @@ const NFTForm: React.FC = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:3000/generate-nft', {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/generate-nft`, {
         prompt,
         name,
         description,
@@ -59,7 +59,7 @@ const NFTForm: React.FC = () => {
 
     setMinting(true);
     try {
-      const connection = new Connection("https://api.devnet.solana.com");
+      const connection = new Connection(`${process.env.SOLANA_MAINNET_RPC}`);
       const metaplex = Metaplex.make(connection)
         .use(walletAdapterIdentity(wallet));
 
@@ -216,7 +216,7 @@ const NFTForm: React.FC = () => {
                       <span className="font-medium">Address:</span> {mintedAddress}
                     </p>
                     <a 
-                      href={`https://explorer.solana.com/address/${mintedAddress}?cluster=devnet`}
+                      href={`https://explorer.solana.com/address/${mintedAddress}?cluster=mainnet`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-blue-400 hover:text-blue-300 hover:underline mt-2 inline-flex items-center"
